@@ -23,3 +23,8 @@ func get_suit()-> String:
 	return suit
 func get_value()-> String:
 	return value
+func get_card_data() -> Dictionary:
+	return {
+		"suit": suit,
+		"rank": value
+	}

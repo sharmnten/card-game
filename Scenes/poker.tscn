@@ -529,12 +529,12 @@ frame = 1
 frame_progress = 0.30594164
 
 [node name="DealerCard" type="AnimatedSprite2D" parent="CardPlaceholders" unique_id=124675854]
-position = Vector2(538, 132)
+position = Vector2(537.5, 132)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_1m6pm")
 
 [node name="DealerCard1" type="AnimatedSprite2D" parent="CardPlaceholders" unique_id=254098170]
-position = Vector2(615, 132)
+position = Vector2(614.5, 132)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_1m6pm")
 
