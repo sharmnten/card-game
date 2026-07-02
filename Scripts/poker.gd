@@ -12,6 +12,11 @@ extends Node2D
 @onready var check_button=get_node("Check Button")
 @onready var fold_button=get_node("Fold Button")
 @onready var raise_button=get_node("Raise Button")
+@onready var player_money_label=get_node("UI/PlayerMoney")
+@onready var chips_asset=get_node("chips")
+@onready var bet_amount=get_node("UI/BetAmount")
+@onready var start_ui=get_node("UI/Start")
+@onready var game_ui= get_node("UI/Game")
 var rendered_cards=[]
 var deck = [
 	{"suit":"Hearts", "rank":"A"},
@@ -77,7 +82,6 @@ var community_cards=[]
 #Preload card scene
 var CardScene = preload("res://Scenes/card.tscn")
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#Set default animation states for all card placeholders in the game
@@ -91,14 +95,13 @@ func _ready() -> void:
 	community_card_5.frame=54
 	dealer_card_1.frame=54
 	dealer_card_2.frame=54
+	player_money_label.text="$"+str(GameState.get_player_money())
+	#UI setup
+	bet_amount.visible=false
+	
+	
 	#Start game logic setup
 	shuffle()
-	flip_card(deal_to_player())
-	flip_card(deal_to_player())
-	deal_to_house()
-	deal_to_house()
-	deal_flop()
-	
 	
 
 
@@ -112,13 +115,12 @@ func _process(delta: float) -> void:
 
 
 
-
 func shuffle() -> void:
 	deck.shuffle()
 
 func deal() -> Dictionary:
 	return deck.pop_back()
-func flip_card(card)->void:
+func flip_card(card)->Node2D:
 	var newCard=card
 	var cardData=newCard.get_card_data()
 	var animationIndex=0
@@ -145,8 +147,8 @@ func flip_card(card)->void:
 }
 	print(cardData)
 	var frame = animationIndex + int(rank_offsets[cardData["rank"]])
-	
-	newCard.get_node("AnimatedSprite2D").frame=frame
+	card.set_frame(frame)
+	return card
 
 
 func render_deck_card(cardData) -> Node2D:
@@ -171,6 +173,7 @@ func deal_to_player()->Node2D:
 		tween.tween_property(playerCard, "position", Vector2(537.5, 549), 0.5)
 	elif(player_hand.size()==2):
 		tween.tween_property(playerCard, "position", Vector2(614.5, 549.0), 0.5)
+	await tween.finished
 	return playerCard
 
 func deal_to_house()->Node2D:
@@ -185,16 +188,19 @@ func deal_to_house()->Node2D:
 		tween.tween_property(houseCard, "position", Vector2(614.5, 132.0), 0.5)
 	return houseCard
 
-func deal_flop():
-	var card_x=[460.5, 537.5, 614.5]
-	var card_y=324
-	var currentCard
-	var tween = create_tween()
+func deal_flop() -> void:
+	var card_x = [614.5, 537.5,460.5 ]
+	
+	var card_y = 324
+
 	for x in card_x:
-		currentCard = render_deck_card(deal())
-		community_cards.append(currentCard)
+		var currentCard = render_deck_card(deal())
+
+		var tween = create_tween()
 		tween.tween_property(currentCard, "position", Vector2(x, card_y), 0.5)
-		flip_card(currentCard)
+
+		await tween.finished
+		render_flip_card(flip_card(currentCard))
 		
 func deal_turn():
 	var card_x=691.5
@@ -218,6 +224,7 @@ func deal_river():
 func _on_check_button_pressed() -> void:
 	for x in house_hand:
 		flip_card(x)
+		
 
 
 
@@ -227,4 +234,44 @@ func _on_fold_button_pressed() -> void:
 
 
 func _on_raise_button_pressed() -> void:
-	deal_flop()
+	reveal_dealer_hand()
+func render_flip_card(card):
+	var tween = create_tween()
+
+	tween.tween_property(card, "scale:x", 0.0, 0.15)
+
+	tween.tween_callback(func():
+		card.get_node("AnimatedSprite2D").frame=card.get_frame()
+	)
+
+	tween.tween_property(card, "scale:x", 1.5, 0.15)
+func reveal_dealer_hand():
+	for card in house_hand:
+		flip_card(card)
+		render_flip_card(card)
+
+
+func _on_bet_amount_value_changed(value: float) -> void:
+	chips_asset.set_amount(value)
+	
+
+
+
+func _on_back_button_pressed() -> void:
+	#exit game
+	pass # Replace with function body.
+
+func subtract_from_player(amount:int):
+	GameState.set_player_money(GameState.get_player_money()-amount)
+	player_money_label.text="$"+str(GameState.get_player_money())
+
+func _on_start_button_pressed() -> void:
+	start_ui.visible=false
+	subtract_from_player(5)
+	chips_asset.add_chips(10)
+	render_flip_card(flip_card(await deal_to_player()))
+	render_flip_card(flip_card(await deal_to_player()))
+	deal_to_house()
+	deal_to_house()
+	game_ui.visible=true
+	

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b4jfag84f6v4t" path="res://Scripts/poker.gd" id="1_0g5d2"]
 [ext_resource type="FontFile" uid="uid://bqstfb1yi6wre" path="res://Fonts/PixelifySans-VariableFont_wght.ttf" id="1_3xkfc"]
+[ext_resource type="PackedScene" uid="uid://boi528ctfr7no" path="res://Scenes/chips.tscn" id="2_7c2xb"]
+[ext_resource type="Script" uid="uid://c7hrd7s0mn31r" path="res://Scripts/h_slider.gd" id="2_47eam"]
 [ext_resource type="Texture2D" uid="uid://6nl4b7kbn7b4" path="res://Sprites/Cards/1.2 Poker cards.png" id="2_qmpik"]
 [ext_resource type="Texture2D" uid="uid://drpubjoly6qpa" path="res://Sprites/Cards/cardspot.png" id="3_qmpik"]
 [ext_resource type="Texture2D" uid="uid://dq1hqxvqm7mqa" path="res://Sprites/Cards/fiches addon (Poker Cards).png" id="4_ktyqh"]
@@ -447,33 +449,6 @@ offset_right = 1155.0
 offset_bottom = 657.0
 color = Color(0.003921569, 0.654902, 0.46666667, 1)
 
-[node name="Check Button" type="Button" parent="." unique_id=1177535939]
-offset_left = 449.5
-offset_top = 403.0
-offset_right = 502.5
-offset_bottom = 434.0
-theme_override_fonts/font = ExtResource("1_3xkfc")
-action_mode = 0
-text = "Check"
-
-[node name="Fold Button" type="Button" parent="." unique_id=519621535]
-offset_left = 649.5
-offset_top = 403.0
-offset_right = 702.5
-offset_bottom = 434.0
-theme_override_fonts/font = ExtResource("1_3xkfc")
-text = "Fold
-"
-
-[node name="Raise Button" type="Button" parent="." unique_id=71216068]
-offset_left = 550.0
-offset_top = 403.0
-offset_right = 603.0
-offset_bottom = 434.0
-theme_override_fonts/font = ExtResource("1_3xkfc")
-text = "Raise
-"
-
 [node name="CardPlaceholders" type="Node2D" parent="." unique_id=1592134777]
 
 [node name="Deck" type="AnimatedSprite2D" parent="CardPlaceholders" unique_id=1073495965]
@@ -543,6 +518,121 @@ position = Vector2(383.5, 324)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_1m6pm")
 
-[connection signal="pressed" from="Check Button" to="." method="_on_check_button_pressed"]
-[connection signal="pressed" from="Fold Button" to="." method="_on_fold_button_pressed"]
-[connection signal="pressed" from="Raise Button" to="." method="_on_raise_button_pressed"]
+[node name="Label" type="Label" parent="." unique_id=93523320]
+offset_left = 530.0
+offset_top = 477.9
+offset_right = 622.0
+offset_bottom = 500.9
+text = "Player Hand"
+
+[node name="Label2" type="Label" parent="." unique_id=442319504]
+offset_left = 530.0
+offset_top = 64.0
+offset_right = 623.0
+offset_bottom = 84.00001
+text = "Dealer Hand"
+
+[node name="chips" parent="." unique_id=1225324651 instance=ExtResource("2_7c2xb")]
+position = Vector2(197, 205)
+
+[node name="UI" type="Control" parent="." unique_id=1113296078]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerMoney" type="Label" parent="UI" unique_id=1291096563]
+layout_mode = 0
+offset_left = 739.0
+offset_right = 1146.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 24
+text = "-"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="BetAmount" type="HSlider" parent="UI" unique_id=1942096714]
+layout_mode = 0
+offset_left = 526.0
+offset_top = 400.0
+offset_right = 626.0
+offset_bottom = 416.0
+script = ExtResource("2_47eam")
+
+[node name="Label" type="Label" parent="UI/BetAmount" unique_id=787565109]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 13.0
+offset_right = 58.0
+offset_bottom = 33.0
+text = "0.0"
+
+[node name="Start" type="Control" parent="UI" unique_id=1734999245]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BackButton" type="Button" parent="UI/Start" unique_id=1845705384]
+layout_mode = 0
+offset_left = 442.0
+offset_top = 392.0
+offset_right = 502.0
+offset_bottom = 422.0
+text = "Back"
+
+[node name="StartButton" type="Button" parent="UI/Start" unique_id=1569925452]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 393.0
+offset_right = 710.0
+offset_bottom = 423.0
+text = "Start"
+
+[node name="Game" type="Control" parent="UI" unique_id=700393124]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Check Button" type="Button" parent="UI/Game" unique_id=1177535939]
+layout_mode = 0
+offset_left = 449.5
+offset_top = 403.0
+offset_right = 504.5
+offset_bottom = 434.0
+theme_override_fonts/font = ExtResource("1_3xkfc")
+action_mode = 0
+text = "Check"
+
+[node name="Fold Button" type="Button" parent="UI/Game" unique_id=519621535]
+layout_mode = 0
+offset_left = 649.5
+offset_top = 403.0
+offset_right = 702.5
+offset_bottom = 434.0
+theme_override_fonts/font = ExtResource("1_3xkfc")
+text = "Fold
+"
+
+[node name="Raise Button" type="Button" parent="UI/Game" unique_id=71216068]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 403.0
+offset_right = 603.0
+offset_bottom = 434.0
+theme_override_fonts/font = ExtResource("1_3xkfc")
+text = "Raise
+"
+
+[node name="End" type="Control" parent="UI" unique_id=391710307]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="value_changed" from="UI/BetAmount" to="." method="_on_bet_amount_value_changed"]
+[connection signal="value_changed" from="UI/BetAmount" to="UI/BetAmount" method="_on_value_changed"]
+[connection signal="pressed" from="UI/Start/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="UI/Start/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="UI/Game/Check Button" to="." method="_on_check_button_pressed"]
+[connection signal="pressed" from="UI/Game/Fold Button" to="." method="_on_fold_button_pressed"]
+[connection signal="pressed" from="UI/Game/Raise Button" to="." method="_on_raise_button_pressed"]
