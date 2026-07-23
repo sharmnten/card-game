@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://2yx1wvrrkj0p"]
+
+[ext_resource type="Script" uid="uid://bq5eyxnkyumj" path="res://Scripts/character_body_2d.gd" id="1_ewbju"]
+[ext_resource type="SpriteFrames" uid="uid://bghhwun25sn6k" path="res://Sprites/SpriteFrames/Base/dark_base.tres" id="2_nb51f"]
+[ext_resource type="SpriteFrames" uid="uid://u5j0nkr0i4e3" path="res://Sprites/SpriteFrames/Bottom/brown_bottom.tres" id="3_1phco"]
+[ext_resource type="SpriteFrames" uid="uid://di1t3uptk0iqm" path="res://Sprites/SpriteFrames/Eyes/green_eyes.tres" id="4_1l0tm"]
+[ext_resource type="SpriteFrames" uid="uid://1jk1i5jy3js4" path="res://Sprites/SpriteFrames/Hair/cop_hair.tres" id="5_1l0tm"]
+[ext_resource type="Texture2D" uid="uid://br6vxqm0k1lr6" path="res://Sprites/Character/idle/free_shadow_idle.png" id="6_1l0tm"]
+[ext_resource type="SpriteFrames" uid="uid://dw3jyjpqifp62" path="res://Sprites/SpriteFrames/Top/yellow_top.tres" id="6_v158k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85qyi"]
+atlas = ExtResource("6_1l0tm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iivbl"]
+atlas = ExtResource("6_1l0tm")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nnt18"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"idle_back_shadow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85qyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iivbl")
+}],
+"loop": 1,
+"name": &"idle_front_shadow",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"idle_side_shadow",
+"speed": 5.0
+}]
+
+[node name="game" type="Node2D" unique_id=1299436220]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=233888596]
+position = Vector2(70, 48)
+script = ExtResource("1_ewbju")
+
+[node name="Base" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=821423391]
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("2_nb51f")
+animation = &"idle_side"
+
+[node name="Bottom" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1368081766]
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("3_1phco")
+animation = &"idle_side"
+
+[node name="Eyes" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=551056464]
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("4_1l0tm")
+animation = &"idle_side"
+
+[node name="Hair" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1131797760]
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("5_1l0tm")
+animation = &"idle_front"
+
+[node name="Top" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1027976905]
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("6_v158k")
+animation = &"idle_back"
+
+[node name="Shadow" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1414768722]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_nnt18")
+animation = &"idle_back_shadow"
+autoplay = "idle_front_shadow"

@@ -1,0 +1,63 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cayusq70d406j"]
+
+[ext_resource type="Texture2D" uid="uid://bj3eud4swvjhx" path="res://Sprites/Character/idle/hair/free_hair_short_brown_idle.png" id="1_y3b06"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk52b"]
+atlas = ExtResource("1_y3b06")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebt87"]
+atlas = ExtResource("1_y3b06")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_naoyo"]
+atlas = ExtResource("1_y3b06")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjq50"]
+atlas = ExtResource("1_y3b06")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aaw8k"]
+atlas = ExtResource("1_y3b06")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ncpc"]
+atlas = ExtResource("1_y3b06")
+region = Rect2(32, 32, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk52b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebt87")
+}],
+"loop": 1,
+"name": &"idle_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_naoyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjq50")
+}],
+"loop": 1,
+"name": &"idle_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aaw8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ncpc")
+}],
+"loop": 1,
+"name": &"idle_side",
+"speed": 5.0
+}]
