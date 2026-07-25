@@ -76,7 +76,7 @@ animation = &"idle_back"
 [node name="Shadow" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1414768722]
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_nnt18")
-animation = &"idle_back_shadow"
+animation = &"idle_front_shadow"
 autoplay = "idle_front_shadow"
 
 [node name="Base" type="Control" parent="." unique_id=384952134]
@@ -241,3 +241,11 @@ texture_normal = ExtResource("10_dna5a")
 
 [connection signal="pressed" from="Base/Right" to="." method="_on_base_right_pressed"]
 [connection signal="pressed" from="Base/Left" to="." method="_on_base_left_pressed"]
+[connection signal="pressed" from="Bottom/Right" to="." method="_on_bottom_right_pressed"]
+[connection signal="pressed" from="Bottom/Left" to="." method="_on_bottom_left_pressed"]
+[connection signal="pressed" from="Eyes/Right" to="." method="_on_eyes_right_pressed"]
+[connection signal="pressed" from="Eyes/Left" to="." method="_on_eyes_left_pressed"]
+[connection signal="pressed" from="Hair/Right" to="." method="_on_hair_right_pressed"]
+[connection signal="pressed" from="Hair/Left" to="." method="_on_hair_left_pressed"]
+[connection signal="pressed" from="Top/Right" to="." method="_on_top_right_pressed"]
+[connection signal="pressed" from="Top/Left" to="." method="_on_top_left_pressed"]

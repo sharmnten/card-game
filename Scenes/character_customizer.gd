@@ -88,11 +88,49 @@ func update_character(currentAnim):
 	top.play(anim)
 
 func _on_base_right_pressed() -> void:
-	current_base_frame=current_base_frame+1
+	current_base_frame = (current_base_frame + 1) % base_order.size()
 	update_character("idle_front")
-	
-
 
 func _on_base_left_pressed() -> void:
-	current_base_frame=current_base_frame-1
+	current_base_frame = (current_base_frame - 1 + base_order.size()) % base_order.size()
+	update_character("idle_front")
+
+
+func _on_bottom_right_pressed() -> void:
+	current_bottom_frame=(current_bottom_frame +1) % bottom_order.size()
+	update_character("idle_front")
+
+
+func _on_bottom_left_pressed() -> void:
+	current_bottom_frame = (current_bottom_frame - 1 + bottom_order.size()) % bottom_order.size()
+	update_character("idle_front")
+
+
+func _on_eyes_right_pressed() -> void:
+	current_eyes_frame=(current_eyes_frame +1) % eyes_order.size()
+	update_character("idle_front")
+
+
+func _on_eyes_left_pressed() -> void:
+	current_eyes_frame = (current_eyes_frame - 1 + eyes_order.size()) % eyes_order.size()
+	update_character("idle_front")
+
+
+func _on_hair_right_pressed() -> void:
+	current_hair_frame=(current_hair_frame +1) % hair_order.size()
+	update_character("idle_front")
+
+
+func _on_hair_left_pressed() -> void:
+	current_hair_frame = (current_hair_frame - 1 + hair_order.size()) % hair_order.size()
+	update_character("idle_front")
+
+
+func _on_top_right_pressed() -> void:
+	current_top_frame=(current_top_frame +1) % top_order.size()
+	update_character("idle_front")
+
+
+func _on_top_left_pressed() -> void:
+	current_top_frame = (current_top_frame - 1 + top_order.size()) % top_order.size()
 	update_character("idle_front")
