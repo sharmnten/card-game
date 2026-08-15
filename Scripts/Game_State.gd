@@ -3,11 +3,11 @@ extends Node
 
 var playerMoney
 var character_customization={
-	"base":"light",
-	"bottom":"blue",
-	"eyes":"blue",
-	"hair":"short_yellow",
-	"top":"green"
+	"base":0,
+	"bottom":0,
+	"eyes":0,
+	"hair":0,
+	"top":0
 }
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,3 +30,5 @@ func set_character(base, bottom, eyes, hair, top):
 	character_customization["hair"]=hair
 	character_customization["base"]=base
 	
+func get_character()->Dictionary:
+	return character_customization

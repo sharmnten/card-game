@@ -35,17 +35,33 @@ const DIAG_SPEED := SPEED / sqrt(2.0)
 }
 
 func _ready()->void:
-	var anim="idle_front"
+	
 	$Base.sprite_frames=body_frames["dark"]
-	$Base.play(anim)
+	
 	$Bottom.sprite_frames=bottom_frames["brown"]
-	$Bottom.play(anim)
+	
 	$Eyes.sprite_frames=eyes_frames["blue"]
-	$Eyes.play(anim)
+	
 	$Hair.sprite_frames=hair_frames["short_red"]
-	$Hair.play(anim)
+	
 	$Top.sprite_frames=top_frames["blue"]
+	set_anim("idle_front")
+
+func set_anim(anim)->void:
+	$Base.play(anim)
+	$Bottom.play(anim)
+	$Eyes.play(anim)
+	$Hair.play(anim)
 	$Top.play(anim)
+	$Shadow.play(anim)
+func set_flip(status)->void:
+	$Base.flip_h=status
+	$Bottom.flip_h=status
+	$Eyes.flip_h=status
+	$Hair.flip_h=status
+	$Top.flip_h=status
+	$Shadow.flip_h=status
+	
 
 
 func _physics_process(delta: float) -> void:
@@ -64,5 +80,18 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, SPEED)
 		velocity.y = move_toward(velocity.y, 0.0, SPEED)
-
+		set_anim("idle_front")
+	if v_direction ==1:
+		set_anim("walk_front")
+		set_flip(false)
+	elif v_direction==-1:
+		set_anim("walk_back")
+		set_flip(false)
+	elif direction==1:
+		set_anim("walk_side")
+		set_flip(false)
+	elif direction ==-1:
+		set_flip(true)
+		set_anim("walk_side")
+	
 	move_and_slide()

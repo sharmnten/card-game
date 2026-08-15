@@ -99,8 +99,8 @@ vertical_alignment = 1
 
 [node name="Right" type="TextureButton" parent="Base" unique_id=1146767463]
 layout_mode = 0
-offset_left = -3.0
-offset_right = 37.0
+offset_left = 2.0
+offset_right = 42.0
 offset_bottom = 40.0
 texture_normal = ExtResource("9_6l7og")
 
@@ -130,9 +130,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Right" type="TextureButton" parent="Bottom" unique_id=927075938]
-layout_mode = 0
-offset_left = -3.0
-offset_right = 37.0
+layout_mode = 1
+anchors_preset = -1
+offset_left = 21.0
+offset_right = 61.0
 offset_bottom = 40.0
 texture_normal = ExtResource("9_6l7og")
 
@@ -163,8 +164,7 @@ vertical_alignment = 1
 
 [node name="Right" type="TextureButton" parent="Eyes" unique_id=159704495]
 layout_mode = 0
-offset_left = -3.0
-offset_right = 37.0
+offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("9_6l7og")
 

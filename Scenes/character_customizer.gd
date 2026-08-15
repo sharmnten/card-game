@@ -76,8 +76,9 @@ func update_character(currentAnim):
 	eyes.frame=0
 	hair.frame=0
 	top.frame=0
-	
-	
+	#save the game
+	GameState.set_character(current_base_frame, current_bottom_frame, current_eyes_frame, current_hair_frame, current_top_frame)
+	print(GameState.get_character())
 	#play animations
 	
 	
