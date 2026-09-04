@@ -608,6 +608,29 @@ offset_bottom = 403.0
 text = "Diamonds
 "
 
+[node name="End" type="Control" parent="UI" unique_id=663315336]
+visible = false
+anchors_preset = 0
+offset_left = 739.0
+offset_right = 779.0
+offset_bottom = 40.0
+
+[node name="Restart" type="Button" parent="UI/End" unique_id=546773708]
+layout_mode = 0
+offset_left = -101.0
+offset_top = 374.0
+offset_right = -41.0
+offset_bottom = 404.0
+text = "Restart"
+
+[node name="Leave" type="Button" parent="UI/End" unique_id=99314364]
+layout_mode = 0
+offset_left = -277.0
+offset_top = 374.0
+offset_right = -217.0
+offset_bottom = 404.0
+text = "Leave"
+
 [node name="PlayerMoney" type="Label" parent="UI" unique_id=1621452393]
 layout_mode = 0
 offset_left = 739.0
@@ -630,6 +653,7 @@ horizontal_alignment = 1
 [connection signal="pressed" from="UI/Exit" to="." method="_on_exit_pressed"]
 [connection signal="value_changed" from="UI/GameStart/BetSlider" to="UI/GameStart/BetSlider" method="_on_value_changed"]
 [connection signal="pressed" from="UI/GameStart/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="UI/GameStart/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="UI/Turn1/RedButton" to="." method="_on_red_button_pressed"]
 [connection signal="pressed" from="UI/Turn1/BlackButton" to="." method="_on_black_button_pressed"]
 [connection signal="pressed" from="UI/Turn2/Higher" to="." method="_on_higher_pressed"]
@@ -640,3 +664,5 @@ horizontal_alignment = 1
 [connection signal="button_down" from="UI/Turn4/Clubs" to="." method="_on_clubs_button_down"]
 [connection signal="button_down" from="UI/Turn4/Hearts" to="." method="_on_hearts_button_down"]
 [connection signal="button_down" from="UI/Turn4/Diamonds" to="." method="_on_diamonds_button_down"]
+[connection signal="pressed" from="UI/End/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="UI/End/Leave" to="." method="_on_leave_pressed"]

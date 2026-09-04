@@ -2,9 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bcqv8em4oofhm" path="res://Scenes/player.tscn" id="1_7m0ys"]
 [ext_resource type="TileSet" uid="uid://bbepjsecb0wjw" path="res://Sprites/Tileset.tres" id="1_77tpy"]
-[ext_resource type="Script" uid="uid://d2rbvt5vgkqah" path="res://Scripts/casino.gd" id="1_8045u"]
+[ext_resource type="Script" uid="uid://b2ra48cc7y2tu" path="res://Scripts/poker_table.gd" id="3_8045u"]
 [ext_resource type="Script" uid="uid://bjv16x76dcahy" path="res://Scripts/bus_table.gd" id="3_lb26e"]
 [ext_resource type="Texture2D" uid="uid://dhyiw8cugcexo" path="res://Sprites/InputPrompts/tilemap_packed.png" id="4_8045u"]
+[ext_resource type="Script" uid="uid://cmvvgcv2j7cfu" path="res://Scenes/exit.gd" id="6_gmt68"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oivnn"]
 size = Vector2(51, 36)
@@ -40,8 +41,10 @@ size = Vector2(772, 428)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aggle"]
 size = Vector2(87.2, 131.20001)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyvsb"]
+size = Vector2(410, 218)
+
 [node name="Casino" type="Node2D" unique_id=1485883769]
-script = ExtResource("1_8045u")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1098984371]
 visible = false
@@ -73,7 +76,7 @@ offset_right = 650.0
 offset_bottom = 449.0
 color = Color(0, 0, 0, 1)
 
-[node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=607093373]
+[node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=607093373 groups=["player_collider"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=2068516361]
 shape = SubResource("CircleShape2D_oivnn")
@@ -84,6 +87,7 @@ tile_map_data = PackedByteArray("AAANAAMAAAAZABQAAAADAAMAAAAZABQAAAAQAAMAAAAmABQ
 tile_set = ExtResource("1_77tpy")
 
 [node name="PokerTable" type="Area2D" parent="." unique_id=1600957921]
+script = ExtResource("3_8045u")
 
 [node name="Prompt" type="AnimatedSprite2D" parent="PokerTable" unique_id=1917715188]
 visible = false
@@ -131,5 +135,35 @@ theme_override_font_sizes/font_size = 12
 text = "Play Ride The Bus!"
 metadata/_edit_use_anchors_ = true
 
+[node name="Exit" type="Area2D" parent="." unique_id=831881440]
+script = ExtResource("6_gmt68")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" unique_id=16693285]
+position = Vector2(676, 749)
+shape = SubResource("RectangleShape2D_nyvsb")
+
+[node name="Prompt" type="AnimatedSprite2D" parent="Exit" unique_id=1249679277]
+visible = false
+position = Vector2(455, 498)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_8045u")
+autoplay = "default"
+frame_progress = 0.23913753
+
+[node name="Label" type="Label" parent="Exit/Prompt" unique_id=1618481435]
+offset_left = 8.8
+offset_top = -9.2
+offset_right = 141.8
+offset_bottom = 10.8
+theme_override_font_sizes/font_size = 12
+text = "Exit Casino!"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="area_entered" from="CharacterBody2D/Area2D" to="." method="_on_player_area_entered"]
 [connection signal="area_exited" from="CharacterBody2D/Area2D" to="." method="_on_player_area_exited"]
+[connection signal="area_entered" from="PokerTable" to="PokerTable" method="_on_area_entered"]
+[connection signal="area_exited" from="PokerTable" to="PokerTable" method="_on_area_exited"]
+[connection signal="area_entered" from="BusTable" to="BusTable" method="_on_area_entered"]
+[connection signal="area_exited" from="BusTable" to="BusTable" method="_on_area_exited"]
+[connection signal="area_entered" from="Exit" to="Exit" method="_on_area_entered"]
+[connection signal="area_exited" from="Exit" to="Exit" method="_on_area_exited"]

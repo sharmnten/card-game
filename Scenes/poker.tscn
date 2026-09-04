@@ -392,7 +392,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_qmpik")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -400,7 +400,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_qmpik")
 }],
-"loop": true,
+"loop": 1,
 "name": &"hidden",
 "speed": 5.0
 }]
@@ -436,7 +436,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ca1rx")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]

@@ -22,7 +22,7 @@ extends Node2D
 @onready var chip=get_node("chips")
 @onready var instructions=get_node("UI/Instruction")
 @onready var exit_button=get_node("UI//Exit")
-
+@onready var end=get_node("UI/End")
 var rendered_cards=[]
 var deck = [
 	{"suit":"Hearts", "rank":"A"},
@@ -235,16 +235,33 @@ func higher_lower_setup():
 func game_over():
 	instructions.text="Game Over!"
 	exit_button.visible=false
+	turn1.visible=false
+	turn2.visible=false
+	turn3.visible=false
+	turn4.visible=false
+	end.visible=true
 	
 
 func _on_exit_pressed() -> int:
+	
 	var playerMoney=GameState.get_player_money()+bet
 	GameState.set_player_money(playerMoney)
+	player_money.text=str(playerMoney)
+	turn1.visible=false
+	turn2.visible=false
+	turn3.visible=false
+	turn4.visible=false
+	exit_button.visible=false
+	chip.visible=false
+	end.visible=true
 	return GameState.get_player_money()
+	
+	
 
 func game_win()->void:
 	var money = _on_exit_pressed()
 	instructions.text="You won $"+str(money)+"!"
+	end.visible=true
 
 
 func _on_higher_pressed() -> void:
@@ -336,3 +353,15 @@ func _on_diamonds_button_down() -> void:
 		game_win()
 	else:
 		game_over()
+
+
+func _on_back_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/casino.tscn")
+
+
+func _on_restart_pressed() -> void:
+	get_tree().reload_current_scene()
+
+
+func _on_leave_pressed() -> void:
+		get_tree().change_scene_to_file("res://Scenes/casino.tscn")

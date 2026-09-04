@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c6jpu8lgqkmow"]
 
-[ext_resource type="Script" uid="uid://bo3hilkf3ir22" path="res://Scenes/character_customizer.gd" id="1_eh7lt"]
+[ext_resource type="Script" uid="uid://bo3hilkf3ir22" path="res://Scripts/character_customizer.gd" id="1_eh7lt"]
 [ext_resource type="SpriteFrames" uid="uid://bghhwun25sn6k" path="res://Sprites/SpriteFrames/Base/dark_base.tres" id="2_1rtco"]
 [ext_resource type="SpriteFrames" uid="uid://u5j0nkr0i4e3" path="res://Sprites/SpriteFrames/Bottom/brown_bottom.tres" id="3_qqrh8"]
 [ext_resource type="SpriteFrames" uid="uid://di1t3uptk0iqm" path="res://Sprites/SpriteFrames/Eyes/green_eyes.tres" id="4_6l7og"]
