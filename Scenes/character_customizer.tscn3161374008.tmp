@@ -1,0 +1,259 @@
+[gd_scene format=3 uid="uid://c6jpu8lgqkmow"]
+
+[ext_resource type="Script" uid="uid://bo3hilkf3ir22" path="res://Scripts/character_customizer.gd" id="1_eh7lt"]
+[ext_resource type="SpriteFrames" uid="uid://bghhwun25sn6k" path="res://Sprites/SpriteFrames/Base/dark_base.tres" id="2_1rtco"]
+[ext_resource type="SpriteFrames" uid="uid://u5j0nkr0i4e3" path="res://Sprites/SpriteFrames/Bottom/brown_bottom.tres" id="3_qqrh8"]
+[ext_resource type="SpriteFrames" uid="uid://di1t3uptk0iqm" path="res://Sprites/SpriteFrames/Eyes/green_eyes.tres" id="4_6l7og"]
+[ext_resource type="SpriteFrames" uid="uid://1jk1i5jy3js4" path="res://Sprites/SpriteFrames/Hair/cop_hair.tres" id="5_dna5a"]
+[ext_resource type="SpriteFrames" uid="uid://dw3jyjpqifp62" path="res://Sprites/SpriteFrames/Top/yellow_top.tres" id="6_8nl02"]
+[ext_resource type="Texture2D" uid="uid://br6vxqm0k1lr6" path="res://Sprites/Character/idle/free_shadow_idle.png" id="7_v1qxi"]
+[ext_resource type="Texture2D" uid="uid://c1iu4milc10fm" path="res://Sprites/CharacterCustomizer/tile_0092.png" id="9_6l7og"]
+[ext_resource type="Texture2D" uid="uid://bes8cccuo6qhs" path="res://Sprites/CharacterCustomizer/tile_0093.png" id="10_dna5a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85qyi"]
+atlas = ExtResource("7_v1qxi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iivbl"]
+atlas = ExtResource("7_v1qxi")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nnt18"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"idle_back_shadow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85qyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iivbl")
+}],
+"loop": 1,
+"name": &"idle_front_shadow",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"idle_side_shadow",
+"speed": 5.0
+}]
+
+[node name="character_customizer" type="Node2D" unique_id=1299436220]
+script = ExtResource("1_eh7lt")
+
+[node name="Button" type="Button" parent="." unique_id=1362027759]
+offset_left = 545.0
+offset_top = 517.0
+offset_right = 607.0
+offset_bottom = 545.0
+text = "Start!"
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=233888596]
+position = Vector2(576, 324)
+
+[node name="Base" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=821423391]
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("2_1rtco")
+animation = &"idle_side"
+
+[node name="Bottom" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1368081766]
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("3_qqrh8")
+animation = &"idle_side"
+
+[node name="Eyes" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=551056464]
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("4_6l7og")
+animation = &"idle_side"
+
+[node name="Hair" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1131797760]
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("5_dna5a")
+animation = &"idle_front"
+
+[node name="Top" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1027976905]
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("6_8nl02")
+animation = &"idle_back"
+
+[node name="Shadow" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1414768722]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_nnt18")
+animation = &"idle_front_shadow"
+autoplay = "idle_front_shadow"
+
+[node name="Base" type="Control" parent="." unique_id=384952134]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 596.0
+offset_top = 381.0
+offset_right = 636.0
+offset_bottom = 421.0
+
+[node name="Label" type="Label" parent="Base" unique_id=1511986047]
+layout_mode = 0
+offset_left = -37.0
+offset_top = -1.0
+offset_right = 3.0
+offset_bottom = 19.0
+text = "Base"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right" type="TextureButton" parent="Base" unique_id=1146767463]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 42.0
+offset_bottom = 40.0
+texture_normal = ExtResource("9_6l7og")
+
+[node name="Left" type="TextureButton" parent="Base" unique_id=2045014907]
+layout_mode = 0
+offset_left = -50.0
+offset_right = -10.0
+offset_bottom = 40.0
+texture_normal = ExtResource("10_dna5a")
+
+[node name="Bottom" type="Control" parent="." unique_id=838975580]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 596.0
+offset_top = 406.0
+offset_right = 636.0
+offset_bottom = 446.0
+
+[node name="Label" type="Label" parent="Bottom" unique_id=868146373]
+layout_mode = 0
+offset_left = -37.0
+offset_top = -1.0
+offset_right = 3.0
+offset_bottom = 19.0
+text = "Bottom"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right" type="TextureButton" parent="Bottom" unique_id=927075938]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 21.0
+offset_right = 61.0
+offset_bottom = 40.0
+texture_normal = ExtResource("9_6l7og")
+
+[node name="Left" type="TextureButton" parent="Bottom" unique_id=1019378322]
+layout_mode = 0
+offset_left = -50.0
+offset_right = -10.0
+offset_bottom = 40.0
+texture_normal = ExtResource("10_dna5a")
+
+[node name="Eyes" type="Control" parent="." unique_id=897865380]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 596.0
+offset_top = 431.0
+offset_right = 636.0
+offset_bottom = 471.0
+
+[node name="Label" type="Label" parent="Eyes" unique_id=1837787619]
+layout_mode = 0
+offset_left = -37.0
+offset_top = -1.0
+offset_right = 3.0
+offset_bottom = 19.0
+text = "Eyes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right" type="TextureButton" parent="Eyes" unique_id=159704495]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("9_6l7og")
+
+[node name="Left" type="TextureButton" parent="Eyes" unique_id=1686887842]
+layout_mode = 0
+offset_left = -50.0
+offset_right = -10.0
+offset_bottom = 40.0
+texture_normal = ExtResource("10_dna5a")
+
+[node name="Hair" type="Control" parent="." unique_id=1328455668]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 596.0
+offset_top = 456.0
+offset_right = 636.0
+offset_bottom = 496.0
+
+[node name="Label" type="Label" parent="Hair" unique_id=1201053901]
+layout_mode = 0
+offset_left = -37.0
+offset_top = -1.0
+offset_right = 3.0
+offset_bottom = 19.0
+text = "Hair"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right" type="TextureButton" parent="Hair" unique_id=1609270386]
+layout_mode = 0
+offset_left = -3.0
+offset_right = 37.0
+offset_bottom = 40.0
+texture_normal = ExtResource("9_6l7og")
+
+[node name="Left" type="TextureButton" parent="Hair" unique_id=1950451995]
+layout_mode = 0
+offset_left = -50.0
+offset_right = -10.0
+offset_bottom = 40.0
+texture_normal = ExtResource("10_dna5a")
+
+[node name="Top" type="Control" parent="." unique_id=125854594]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 596.0
+offset_top = 481.0
+offset_right = 636.0
+offset_bottom = 521.0
+
+[node name="Label" type="Label" parent="Top" unique_id=1570626609]
+layout_mode = 0
+offset_left = -37.0
+offset_top = -1.0
+offset_right = 3.0
+offset_bottom = 19.0
+text = "Top"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right" type="TextureButton" parent="Top" unique_id=251740875]
+layout_mode = 0
+offset_left = -3.0
+offset_right = 37.0
+offset_bottom = 40.0
+texture_normal = ExtResource("9_6l7og")
+
+[node name="Left" type="TextureButton" parent="Top" unique_id=1658595643]
+layout_mode = 0
+offset_left = -50.0
+offset_right = -10.0
+offset_bottom = 40.0
+texture_normal = ExtResource("10_dna5a")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Base/Right" to="." method="_on_base_right_pressed"]
+[connection signal="pressed" from="Base/Left" to="." method="_on_base_left_pressed"]
+[connection signal="pressed" from="Bottom/Right" to="." method="_on_bottom_right_pressed"]
+[connection signal="pressed" from="Bottom/Left" to="." method="_on_bottom_left_pressed"]
+[connection signal="pressed" from="Eyes/Right" to="." method="_on_eyes_right_pressed"]
+[connection signal="pressed" from="Eyes/Left" to="." method="_on_eyes_left_pressed"]
+[connection signal="pressed" from="Hair/Right" to="." method="_on_hair_right_pressed"]
+[connection signal="pressed" from="Hair/Left" to="." method="_on_hair_left_pressed"]
+[connection signal="pressed" from="Top/Right" to="." method="_on_top_right_pressed"]
+[connection signal="pressed" from="Top/Left" to="." method="_on_top_left_pressed"]

@@ -31,6 +31,8 @@ extends Node2D
 	"yellow":preload("res://Sprites/SpriteFrames/Top/yellow_top.tres")
 }
 
+#TODO: Change this when game is more complete.
+@onready var game_scene=preload("res://Scenes/casino.tscn")
 
 #set up all body components
 @onready var base=get_node("CharacterBody2D/Base")
@@ -135,3 +137,7 @@ func _on_top_right_pressed() -> void:
 func _on_top_left_pressed() -> void:
 	current_top_frame = (current_top_frame - 1 + top_order.size()) % top_order.size()
 	update_character("idle_front")
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_packed(game_scene)

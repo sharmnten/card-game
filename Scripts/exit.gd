@@ -21,7 +21,7 @@ func _on_area_exited(area: Area2D) -> void:
 	
 
 func _input(event: InputEvent) -> void:
-	if(event.is_action("interact")):
+	if(event.is_action("interact")&&game_startable==true):
 		#start game
 		get_tree().change_scene_to_packed(poker_game)
 		game_startable=false

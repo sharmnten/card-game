@@ -34,17 +34,43 @@ const DIAG_SPEED := SPEED / sqrt(2.0)
 	"yellow":preload("res://Sprites/SpriteFrames/Top/yellow_top.tres")
 }
 
+#define current body frames
+@onready var base_order=["light","medium","dark"]
+@onready var current_base_frame=0
+
+#define current bottom frames
+@onready var bottom_order=["blue","brown"]
+@onready var current_bottom_frame=0
+
+#define current eyes frames
+@onready var eyes_order=["blue","brown","green"]
+@onready var current_eyes_frame=0
+#define current hair frames
+@onready var hair_order=["medium_brown","medium_red","medium_yellow","short_brown","short_red","short_yellow"]
+@onready var current_hair_frame=0
+#define current top frames
+@onready var top_order=["blue","green","pink","red","yellow"]
+@onready var current_top_frame=0
+
+
+
 func _ready()->void:
+	if GameState.use_player_pos:
+		position = GameState.get_player_position()
+		GameState.reset_player_position()
 	
-	$Base.sprite_frames=body_frames["dark"]
 	
-	$Bottom.sprite_frames=bottom_frames["brown"]
 	
-	$Eyes.sprite_frames=eyes_frames["blue"]
+	#sprite stuff
+	$Base.sprite_frames=body_frames[base_order[GameState.get_character().base]]
 	
-	$Hair.sprite_frames=hair_frames["short_red"]
+	$Bottom.sprite_frames=bottom_frames[bottom_order[GameState.get_character().bottom]]
 	
-	$Top.sprite_frames=top_frames["blue"]
+	$Eyes.sprite_frames=eyes_frames[eyes_order[GameState.get_character().eyes]]
+	
+	$Hair.sprite_frames=hair_frames[hair_order[GameState.get_character().hair]]
+	
+	$Top.sprite_frames=top_frames[top_order[GameState.get_character().top]]
 	set_anim("idle_front")
 
 func set_anim(anim)->void:

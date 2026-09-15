@@ -45,6 +45,13 @@ animations = [{
 [node name="character_customizer" type="Node2D" unique_id=1299436220]
 script = ExtResource("1_eh7lt")
 
+[node name="Button" type="Button" parent="." unique_id=1362027759]
+offset_left = 545.0
+offset_top = 517.0
+offset_right = 607.0
+offset_bottom = 545.0
+text = "Start!"
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=233888596]
 position = Vector2(576, 324)
 
@@ -239,6 +246,7 @@ offset_right = -10.0
 offset_bottom = 40.0
 texture_normal = ExtResource("10_dna5a")
 
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Base/Right" to="." method="_on_base_right_pressed"]
 [connection signal="pressed" from="Base/Left" to="." method="_on_base_left_pressed"]
 [connection signal="pressed" from="Bottom/Right" to="." method="_on_bottom_right_pressed"]

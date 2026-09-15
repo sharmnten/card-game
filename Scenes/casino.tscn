@@ -2,10 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bcqv8em4oofhm" path="res://Scenes/player.tscn" id="1_7m0ys"]
 [ext_resource type="TileSet" uid="uid://bbepjsecb0wjw" path="res://Sprites/Tileset.tres" id="1_77tpy"]
+[ext_resource type="Script" uid="uid://d2rbvt5vgkqah" path="res://Scripts/casino.gd" id="1_iavee"]
 [ext_resource type="Script" uid="uid://b2ra48cc7y2tu" path="res://Scripts/poker_table.gd" id="3_8045u"]
 [ext_resource type="Script" uid="uid://bjv16x76dcahy" path="res://Scripts/bus_table.gd" id="3_lb26e"]
 [ext_resource type="Texture2D" uid="uid://dhyiw8cugcexo" path="res://Sprites/InputPrompts/tilemap_packed.png" id="4_8045u"]
-[ext_resource type="Script" uid="uid://cmvvgcv2j7cfu" path="res://Scenes/exit.gd" id="6_gmt68"]
+[ext_resource type="Script" uid="uid://cmvvgcv2j7cfu" path="res://Scripts/exit.gd" id="6_gmt68"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oivnn"]
 size = Vector2(51, 36)
@@ -45,6 +46,7 @@ size = Vector2(87.2, 131.20001)
 size = Vector2(410, 218)
 
 [node name="Casino" type="Node2D" unique_id=1485883769]
+script = ExtResource("1_iavee")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1098984371]
 visible = false
@@ -60,7 +62,7 @@ tile_map_data = PackedByteArray("AAAAAAEAAAADAA0AAAAAAAIAAAADAAkAAAAAAAMAAAADAA0
 tile_set = ExtResource("1_77tpy")
 
 [node name="CharacterBody2D" parent="." unique_id=665939953 instance=ExtResource("1_7m0ys")]
-position = Vector2(657, 580)
+position = Vector2(685, 546)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1646629272]
 position = Vector2(0.5, 41)
@@ -75,6 +77,7 @@ offset_top = -588.0
 offset_right = 650.0
 offset_bottom = 449.0
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=607093373 groups=["player_collider"]]
 

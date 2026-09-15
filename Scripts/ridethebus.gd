@@ -5,11 +5,8 @@ extends Node2D
 @onready var community_card_2=get_node("CardPlaceholders/Community2")
 @onready var community_card_3=get_node("CardPlaceholders/Community3")
 @onready var community_card_4=get_node("CardPlaceholders/Community4")
-@onready var dealer_card_1=get_node("CardPlaceholders/DealerCard")
-@onready var dealer_card_2=get_node("CardPlaceholders/DealerCard1")
-@onready var check_button=get_node("Check Button")
-@onready var fold_button=get_node("Fold Button")
-@onready var raise_button=get_node("Raise Button")
+
+
 @onready var player_money=get_node("UI/PlayerMoney")
 @onready var bet_amount=get_node("UI/GameStart/BetSlider")
 @onready var start_button=get_node("UI/GameStart/StartButton")
@@ -18,7 +15,6 @@ extends Node2D
 @onready var turn2=get_node("UI/Turn2")
 @onready var turn3=get_node("UI/Turn3")
 @onready var turn4=get_node("UI/Turn4")
-@onready var pot_label=get_node("UI/Pot Label")
 @onready var chip=get_node("chips")
 @onready var instructions=get_node("UI/Instruction")
 @onready var exit_button=get_node("UI//Exit")
@@ -84,13 +80,13 @@ var deck = [
 var player_hand=[]
 var house_hand=[]
 var community_cards=[]
-
 #Preload card scene
 var CardScene = preload("res://Scenes/card.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("Ride The Bus Started.")
 	player_money.text="$"+str(GameState.get_player_money())
 	#Set default animation states for all card placeholders in the game
 	deck_sprite.frame=0
