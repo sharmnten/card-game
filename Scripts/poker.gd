@@ -186,6 +186,7 @@ func deal_to_house()->Node2D:
 		tween.tween_property(houseCard, "position", Vector2(537.5, 132), 0.5)
 	elif(house_hand.size()==2):
 		tween.tween_property(houseCard, "position", Vector2(614.5, 132.0), 0.5)
+	await tween.finished
 	return houseCard
 
 func deal_flop() -> void:
