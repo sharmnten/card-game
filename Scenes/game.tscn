@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dc0vdlgxe7fhe" path="res://Sprites/TownTileset/tilemap_packed.png" id="1_qxrlw"]
 [ext_resource type="Texture2D" uid="uid://dbxfw4kwcahh8" path="res://Sprites/TownTileset/casino_tilemap.png" id="2_wrm1d"]
 [ext_resource type="Script" uid="uid://2rr6tpajr8e1" path="res://Scripts/casino_entry.gd" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://buv8hf2n4bqnh" path="res://Scenes/ui.tscn" id="5_1l0tm"]
 [ext_resource type="Texture2D" uid="uid://dhyiw8cugcexo" path="res://Sprites/InputPrompts/tilemap_packed.png" id="5_wowpa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
@@ -2351,6 +2352,13 @@ limit_right = 15718
 limit_bottom = 2861
 limit_smoothed = true
 
+[node name="UI" parent="CharacterBody2D/Camera2D" unique_id=1011247538 instance=ExtResource("5_1l0tm")]
+z_index = 10
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
+
 [node name="ColorRect" type="ColorRect" parent="CharacterBody2D/Camera2D" unique_id=1106745472]
 visible = false
 z_index = -10
@@ -2368,7 +2376,7 @@ shape = SubResource("CircleShape2D_qxrlw")
 [node name="Sidewalk Decoration" type="TileMapLayer" parent="." unique_id=1752581336]
 z_index = 3
 scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAC3AB0AAAAFABEAAAC3ABkAAAAFABEAAACzABkAAAAFABEAAACzAB0AAAAFABEAAAC3ABwAAAACAA8AAACzABwAAAAAAA8AAACzABgAAAABAA8AAAC3ABgAAAADAA8AAAC5AB4AAAAjAA4AAACxABgAAAAiAA4AAACcABwAAAAEABEAAACcAB0AAAAFABEAAAA=")
+tile_map_data = PackedByteArray("AAC3AB0AAAAFABEAAAC3ABkAAAAFABEAAACzABkAAAAFABEAAACzAB0AAAAFABEAAAC3ABwAAAACAA8AAACzABwAAAAAAA8AAACzABgAAAABAA8AAAC3ABgAAAADAA8AAAC5AB4AAAAjAA4AAACxABgAAAAiAA4AAACcABwAAAAEABEAAACcAB0AAAAFABEAAACcABcAAAAFABEAAACcABYAAAAEABEAAAA=")
 tile_set = SubResource("TileSet_e57go")
 
 [node name="Barriers" type="Node" parent="." unique_id=439877779]

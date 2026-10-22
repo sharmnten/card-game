@@ -32,7 +32,7 @@ extends Node2D
 }
 
 #TODO: Change this when game is more complete.
-@onready var game_scene=preload("res://Scenes/casino.tscn")
+@onready var game_scene=preload("res://Scenes/game.tscn")
 
 #set up all body components
 @onready var base=get_node("CharacterBody2D/Base")

@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://d2rbvt5vgkqah" path="res://Scripts/casino.gd" id="1_iavee"]
 [ext_resource type="Script" uid="uid://b2ra48cc7y2tu" path="res://Scripts/poker_table.gd" id="3_8045u"]
 [ext_resource type="Script" uid="uid://bjv16x76dcahy" path="res://Scripts/bus_table.gd" id="3_lb26e"]
+[ext_resource type="PackedScene" uid="uid://buv8hf2n4bqnh" path="res://Scenes/ui.tscn" id="4_3wsk4"]
 [ext_resource type="Texture2D" uid="uid://dhyiw8cugcexo" path="res://Sprites/InputPrompts/tilemap_packed.png" id="4_8045u"]
 [ext_resource type="Script" uid="uid://cmvvgcv2j7cfu" path="res://Scripts/exit.gd" id="6_gmt68"]
 
@@ -78,6 +79,13 @@ offset_right = 650.0
 offset_bottom = 449.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="UI" parent="CharacterBody2D/Camera2D" unique_id=1011247538 instance=ExtResource("4_3wsk4")]
+z_index = 10
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
 
 [node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=607093373 groups=["player_collider"]]
 
