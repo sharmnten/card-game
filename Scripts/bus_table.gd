@@ -26,7 +26,7 @@ func _input(event: InputEvent) -> void:
 		#store player position
 		print(str(player_body.global_position.x))
 		print(str(player_body.global_position.y))
-		GameState.set_player_position(player_body.global_position.x, player_body.global_position.y)
+		GameState.set_player_casino_position(player_body.global_position.x, player_body.global_position.y)
 		#start game
 		get_tree().change_scene_to_packed(ride_the_bus_scene)
 		game_startable=false

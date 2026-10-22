@@ -53,11 +53,11 @@ const DIAG_SPEED := SPEED / sqrt(2.0)
 @onready var current_top_frame=0
 
 
-
+#TODO: This needs to be fixed urgently
 func _ready()->void:
-	if GameState.use_player_pos:
-		position = GameState.get_player_position()
-		GameState.reset_player_position()
+	#if GameState.use_player_pos:
+		#position = GameState.get_player_position()
+		#GameState.reset_player_position()
 	
 	
 	

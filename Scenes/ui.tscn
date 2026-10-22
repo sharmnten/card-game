@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://buv8hf2n4bqnh"]
+
+[node name="UI" type="Control" unique_id=1011247538]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=850747800]
+layout_mode = 0
+offset_left = 1083.0
+offset_right = 1152.0
+offset_bottom = 56.0
+color = Color(0, 0, 0, 1)
+
+[node name="Time" type="Label" parent="." unique_id=1901332148]
+layout_mode = 0
+offset_left = 1094.0
+offset_right = 1152.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 24
+text = "12:00"
+
+[node name="Money" type="Label" parent="." unique_id=98853054]
+layout_mode = 0
+offset_left = 1086.0
+offset_top = 26.0
+offset_right = 1152.0
+offset_bottom = 56.0
+theme_override_font_sizes/font_size = 24
+text = "$1000"
