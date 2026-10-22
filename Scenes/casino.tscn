@@ -80,12 +80,9 @@ offset_bottom = 449.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="UI" parent="CharacterBody2D/Camera2D" unique_id=1011247538 instance=ExtResource("4_3wsk4")]
-z_index = 10
-offset_left = -576.0
-offset_top = -324.0
-offset_right = -576.0
-offset_bottom = -324.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" unique_id=1011247538 instance=ExtResource("4_3wsk4")]
 
 [node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=607093373 groups=["player_collider"]]
 

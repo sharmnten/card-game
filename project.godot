@@ -21,8 +21,11 @@ GameState="*uid://bwjdeeqha1bv3"
 
 [display]
 
+window/size/viewport_width=1152
+window/size/viewport_height=648
 window/stretch/mode="canvas_items"
-window/stretch/scale_mode="integer"
+window/stretch/aspect="expand"
+window/stretch/scale_mode="fractional"
 
 [editor_plugins]
 
@@ -69,3 +72,4 @@ interact={
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+renderer/rendering_method.web="gl_compatibility"

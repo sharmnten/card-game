@@ -12,25 +12,34 @@ grow_vertical = 2
 script = ExtResource("1_jxero")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=850747800]
-layout_mode = 0
-offset_left = 1083.0
-offset_right = 1152.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -69.0
 offset_bottom = 56.0
+grow_horizontal = 0
 color = Color(0, 0, 0, 1)
 
 [node name="Time" type="Label" parent="." unique_id=1901332148]
-layout_mode = 0
-offset_left = 1094.0
-offset_right = 1152.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -58.0
 offset_bottom = 30.0
+grow_horizontal = 0
 theme_override_font_sizes/font_size = 24
 text = "12:00"
 
 [node name="Money" type="Label" parent="." unique_id=98853054]
-layout_mode = 0
-offset_left = 1086.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -66.0
 offset_top = 26.0
-offset_right = 1152.0
 offset_bottom = 56.0
+grow_horizontal = 0
 theme_override_font_sizes/font_size = 24
 text = "$1000"
