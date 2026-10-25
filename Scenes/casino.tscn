@@ -80,14 +80,14 @@ offset_bottom = 449.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="UI" parent="CanvasLayer" unique_id=1011247538 instance=ExtResource("4_3wsk4")]
-
 [node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=607093373 groups=["player_collider"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=2068516361]
 shape = SubResource("CircleShape2D_oivnn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=64789608]
+
+[node name="UI" parent="CanvasLayer" unique_id=1011247538 instance=ExtResource("4_3wsk4")]
 
 [node name="Foreground" type="TileMapLayer" parent="." unique_id=1607065888]
 scale = Vector2(4.9999995, 4.9999995)
@@ -95,6 +95,7 @@ tile_map_data = PackedByteArray("AAANAAMAAAAZABQAAAADAAMAAAAZABQAAAAQAAMAAAAmABQ
 tile_set = ExtResource("1_77tpy")
 
 [node name="PokerTable" type="Area2D" parent="." unique_id=1600957921]
+visible = false
 script = ExtResource("3_8045u")
 
 [node name="Prompt" type="AnimatedSprite2D" parent="PokerTable" unique_id=1917715188]
