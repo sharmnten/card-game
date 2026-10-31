@@ -95,7 +95,6 @@ tile_map_data = PackedByteArray("AAANAAMAAAAZABQAAAADAAMAAAAZABQAAAAQAAMAAAAmABQ
 tile_set = ExtResource("1_77tpy")
 
 [node name="PokerTable" type="Area2D" parent="." unique_id=1600957921]
-visible = false
 script = ExtResource("3_8045u")
 
 [node name="Prompt" type="AnimatedSprite2D" parent="PokerTable" unique_id=1917715188]

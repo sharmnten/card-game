@@ -537,9 +537,11 @@ position = Vector2(197, 205)
 
 [node name="UI" type="Control" parent="." unique_id=1113296078]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PlayerMoney" type="Label" parent="UI" unique_id=1291096563]
 layout_mode = 0
@@ -554,9 +556,9 @@ vertical_alignment = 1
 [node name="BetAmount" type="HSlider" parent="UI" unique_id=1942096714]
 layout_mode = 0
 offset_left = 526.0
-offset_top = 400.0
+offset_top = 443.0
 offset_right = 626.0
-offset_bottom = 416.0
+offset_bottom = 459.0
 script = ExtResource("2_47eam")
 
 [node name="Label" type="Label" parent="UI/BetAmount" unique_id=787565109]
@@ -591,8 +593,9 @@ text = "Start"
 [node name="Game" type="Control" parent="UI" unique_id=700393124]
 visible = false
 anchors_preset = 0
+offset_top = -12.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 28.0
 
 [node name="Check Button" type="Button" parent="UI/Game" unique_id=1177535939]
 layout_mode = 0
@@ -624,10 +627,59 @@ theme_override_fonts/font = ExtResource("1_3xkfc")
 text = "Raise
 "
 
-[node name="End" type="Control" parent="UI" unique_id=391710307]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="End" type="CenterContainer" parent="UI" unique_id=1056627305]
+z_index = 10
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 651.0
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/End" unique_id=425562004]
+custom_minimum_size = Vector2(315, 185)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/End/PanelContainer" unique_id=455796721]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/End/PanelContainer/MarginContainer" unique_id=41191518]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="Label" type="Label" parent="UI/End/PanelContainer/MarginContainer/VBoxContainer" unique_id=292351123]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+
+[node name="Details Label" type="Label" parent="UI/End/PanelContainer/MarginContainer/VBoxContainer" unique_id=1499968353]
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Replay Button" type="Button" parent="UI/End/PanelContainer/MarginContainer/VBoxContainer" unique_id=1585637707]
+layout_mode = 2
+
+[node name="Exit Button" type="Button" parent="UI/End/PanelContainer/MarginContainer/VBoxContainer" unique_id=883208101]
+layout_mode = 2
+text = "Back to Casino"
+
+[node name="Poker Status" type="Label" parent="UI" unique_id=1197584240]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 430.0
+offset_right = 470.0
+offset_bottom = 450.0
+theme_override_font_sizes/font_size = 18
+
+[node name="Poker Pot" type="Label" parent="UI" unique_id=1517898771]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 253.0
+offset_right = 590.0
+offset_bottom = 273.0
+theme_override_font_sizes/font_size = 18
 
 [connection signal="value_changed" from="UI/BetAmount" to="." method="_on_bet_amount_value_changed"]
 [connection signal="value_changed" from="UI/BetAmount" to="UI/BetAmount" method="_on_value_changed"]
@@ -636,3 +688,5 @@ offset_bottom = 40.0
 [connection signal="pressed" from="UI/Game/Check Button" to="." method="_on_check_button_pressed"]
 [connection signal="pressed" from="UI/Game/Fold Button" to="." method="_on_fold_button_pressed"]
 [connection signal="pressed" from="UI/Game/Raise Button" to="." method="_on_raise_button_pressed"]
+[connection signal="pressed" from="UI/End/PanelContainer/MarginContainer/VBoxContainer/Replay Button" to="." method="_on_replay_button_pressed"]
+[connection signal="pressed" from="UI/End/PanelContainer/MarginContainer/VBoxContainer/Exit Button" to="." method="_on_exit_button_pressed"]
