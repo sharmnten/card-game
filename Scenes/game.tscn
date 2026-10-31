@@ -2343,7 +2343,7 @@ tile_set = SubResource("TileSet_oivnn")
 [node name="UI" parent="CanvasLayer" unique_id=1011247538 instance=ExtResource("5_1l0tm")]
 
 [node name="CharacterBody2D" parent="." unique_id=665939953 instance=ExtResource("1_ebmjs")]
-position = Vector2(12903, 2259)
+position = Vector2(12989, 1493)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1547041874]
 position = Vector2(0.5, 41)
